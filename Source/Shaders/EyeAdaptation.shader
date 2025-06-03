@@ -89,7 +89,7 @@ META_PS(true, FEATURE_LEVEL_ES2)
 float4 PS_ApplyLuminance(Quad_VS2PS input) : SV_Target
 {
 	float averageLuminance = AverageLuminance.Load(int3(0, 0, 0)).x;
-	float exposure = 1.0f / averageLuminance;
+	float exposure = averageLuminance;
 	return float4((PreExposure * exposure).xxx, 1);
 }
 
